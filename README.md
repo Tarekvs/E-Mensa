@@ -12,7 +12,7 @@ E-Mensa offers a wide range of features, including:
 
 - **Database Interaction**: The website is capable of creating a database connection, fetching data from the database, adding new records to the database, and deleting existing records.
 
-- **User Authentication**: Users can register and log in with a username, password, and email. The password is hashed before being saved in the Database. Furthermore admin privileges are available users that register as admins.
+- **User Authentication**: Users can register and log in with a username, password, and email. The password is hashed before being saved in the Database. Furthermore admin privileges are available for users that register as admins.
 
 - **Meal Reviews**: Logged-in users can review meals and share their opinions. Admins can delete reviews.
 
