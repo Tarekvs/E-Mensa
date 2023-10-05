@@ -1,4 +1,4 @@
-@extends(".examples.layout.m4_7d_layout")
+@extends(".layout.layout")
 <link rel="stylesheet" href="/css/meinungen.css">
 
 @section("title", "Bewertung")

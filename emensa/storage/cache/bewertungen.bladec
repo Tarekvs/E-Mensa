@@ -51,4 +51,4 @@
  <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
  </table>
 <?php $this->stopSection(); ?>
-<?php if (isset($_shouldextend[1])) { echo $this->runChild(".examples.layout.m4_7d_layout"); } ?>
+<?php if (isset($_shouldextend[1])) { echo $this->runChild(".layout.layout"); } ?>

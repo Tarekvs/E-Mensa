@@ -23,17 +23,6 @@ return array(
     '/bewertungen' => "HomeController@bewertungen",
 
     '/index'        => "HomeController@index",
-    "/demo"         => "DemoController@demo",
-    '/dbconnect'    => 'DemoController@dbconnect',
     '/debug'        => 'HomeController@debug',
-    '/error'        => 'DemoController@error',
-    '/requestdata'  => 'DemoController@requestdata',
-
-    // Erstes Beispiel:
-    '/m4_7a_queryparameter' => 'ExampleController@m4_7a_queryparameter',
-    '/m4_7b_kategorie' => 'ExampleController@m4_7b_kategorie',
-    '/m4_7c_gerichte' => 'ExampleController@m4_7c_gerichte',
-    '/m4_7d_layout' => 'ExampleController@m4_7d_layout',
-
 
 );

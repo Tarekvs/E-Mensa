@@ -1,4 +1,4 @@
-@extends(".examples.layout.m4_7d_layout")
+@extends(".layout.layout")
 
 @section("title", "E-Mensa")
 <link rel="stylesheet" href="/css/empfehlung.css">
