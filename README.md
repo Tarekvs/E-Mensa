@@ -46,6 +46,10 @@ intended to run with only one dependency (bladeone).
 
 * start this script by either executing `start_server.bat` or running `php -S 127.0.0.1:9000 -t public` in a shell from the project´s root directory.
 
+* this web application relies on MariaDB
+
+* please ensure your db.php file for connection with your local database is       correct.
+
 * [open the website](http://127.0.0.1:9000/)
 
 ## folder overview
