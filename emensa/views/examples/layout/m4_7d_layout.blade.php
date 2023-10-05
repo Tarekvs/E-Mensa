@@ -47,7 +47,7 @@
                 <table>
                     <tr>
                         <td>&copy; E-Mensa GmbH</td>
-                        <td>arek von Seckendorff</td>
+                        <td>Tarek von Seckendorff</td>
                         <td><a href="">Impressum</a></td>
                     </tr>
                 </table>

@@ -1,20 +1,21 @@
 <?php $_shouldextend[1]=1; ?>
+<link rel="stylesheet" href="/css/meinungen.css">
 
 <?php $this->startSection("title", "Bewertung"); ?>
 
 <?php $this->startSection('content'); ?>
 
- <?php if(isset($markedratings)): ?>
+<?php if(isset($markedratings)): ?>
  <h3>Bewertungen der Nutzer:</h3>
- <br>
  <table id="bewertung_table">
  <thead>
  <tr>
- <td>Gericht</td>
- <td>Bemerkung</td>
- <td>Bewertung</td>
+ <th>Gericht</th>
+ <th>Bemerkung</th>
+ <th>Bewertung</th>
  </tr>
  </thead>
+ <tbody>
  <?php $__currentLoopData = $markedratings; $this->addLoop($__currentLoopData);$this->getFirstLoop();
  foreach($__currentLoopData as $r): $loop = $this->incrementLoopIndices();  ?>
  <tr>
@@ -31,11 +32,12 @@
  <?php endif; ?>
  </tr>
  <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
+ </tbody>
  </table>
-
- <?php else: ?>
+<?php else: ?>
  <h2>Keine hervorgehobene Gerichte vorhanden!</h2>
- <?php endif; ?>
+<?php endif; ?>
 
 <?php $this->stopSection(); ?>
+
 <?php if (isset($_shouldextend[1])) { echo $this->runChild(".examples.layout.m4_7d_layout"); } ?>
