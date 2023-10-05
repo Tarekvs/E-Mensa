@@ -50,6 +50,8 @@ intended to run with only one dependency (bladeone).
 
 * please ensure your db.php file for connection with your local database is       correct.
 
+* run the Load-Database.sql file before running the web application
+
 * [open the website](http://127.0.0.1:9000/)
 
 ## folder overview
