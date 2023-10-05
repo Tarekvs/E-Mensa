@@ -1,6 +1,6 @@
 <?php
 
-require_once(__DIR__.'/../models/beispiele/passwort.php');
+require_once(__DIR__.'/../models/passwort.php');
 
 
 class AnmeldungController
