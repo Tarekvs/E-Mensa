@@ -4,7 +4,7 @@ E-Mensa is a web application that provides an interactive platform for a virtual
 
 ## Overview
 
-E-Mensa was built using the Model-View-Controller (MVC) concept. The core routing script, `index.php`, was not written by me but serves as the foundational structure for the application. However, I have implemented all controllers, views, SQL database connections, backend logic, and a logger to extend and enhance the functionality of the website.
+E-Mensa was built using the Model-View-Controller (MVC) concept. The core routing script, `index.php`, was not written by me but serves as the foundational structure for the application. However, I have implemented all controllers, views, SQL database connections, database logic, and a logger to extend and enhance the functionality of the website.
 
 ## Features
 
