@@ -1,0 +1,18 @@
+<!doctype html>
+<html class="no-js" lang="DE">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <title><?php echo $this->yieldContent('title'); ?></title>
+</head>
+<body>
+<header>
+ <?php echo $this->yieldContent('header'); ?>
+</header>
+<div class="main">
+ <?php echo $this->yieldContent('main'); ?>
+</div>
+</body>
+<footer>
+ <?php echo $this->yieldContent('footer'); ?>
+</footer>

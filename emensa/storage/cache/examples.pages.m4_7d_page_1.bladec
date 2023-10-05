@@ -1,0 +1,4 @@
+<?php $_shouldextend[1]=1; ?>
+
+<?php $this->startSection("title",'Page1'); ?>
+<?php if (isset($_shouldextend[1])) { echo $this->runChild("examples.layout.m4_7d_layout"); } ?>

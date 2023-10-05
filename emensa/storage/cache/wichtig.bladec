@@ -1,0 +1,17 @@
+<?php $_shouldextend[1]=1; ?>
+
+<?php $this->startSection("title", "E-Mensa"); ?>
+<?php $this->startSection('content'); ?>
+
+ <div id="Wichtig">
+ <div class="titel">Das ist uns wichtig</div>
+ <div id="wichtiglist">
+ <ul>
+ <li>Beste frische saisonale Zutaten</li>
+ <li>Ausgewogene abwechslungsreiche Gerichte</li>
+ <li>Sauberkeit</li>
+ </ul>
+ </div>
+ </div>
+<?php $this->stopSection(); ?>
+<?php if (isset($_shouldextend[1])) { echo $this->runChild(".examples.layout.m4_7d_layout"); } ?>
