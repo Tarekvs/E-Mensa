@@ -1,74 +1,75 @@
 <?php
- /**
-         *- Praktikum DBWT. Autoren:
-         *- Jonas, Gühler, 3263987
-         *- Tarek, von Seckendorff, 3533712
-         */
-    require_once(__DIR__.'/../models/gericht.php');
 
+
+require_once(__DIR__.'/../models/gericht.php');
+
+/**
+ * Class WunschgerichtController
+ *
+ * This class is responsible for handling user's dish recommendations.
+ */
 class WunschgerichtController
 {
+    /**
+     * Handles the incoming data for dish recommendations and performs several validations.
+     * If the data passes all validations, it records the dish recommendation.
+     *
+     * @return mixed The view to be displayed.
+     */
     function index(){
 
-
-
+        // Initialize error flag.
         $fehler = false;
 
-//Wenn der Name nicht leer ist, werden die Leerzeichen entfernt und der Name wird gespeichert
+        // If the name isn't empty after trimming, store it.
         $name = trim($_POST['name'] ?? NULL);
-        if (empty($name)) { //Name besteht nur aus Leerzeichen nach Trim = empty
-            $fehler = "Name darf nicht nur aus Leerzeichen bestehen"; //Fehlermeldung
-            header("refresh:5; URL=wunschgericht.html");    //Neue Seite wird für 5 Sekunden angezeigt, wo die Fehlermeldung ausgegeben wird.
-            echo $fehler . "<br>";                                //Nach 5 Sekunden wird man wieder auf die Werbeseite weitergeleitet
-            echo "\n";
+        if (empty($name)) {
+            $fehler = "Name must not consist only of spaces";
+            header("refresh:5; URL=wunschgericht.html");
+            echo $fehler . "<br>";
             return view('empfehlung');
-
         }
 
+        // Check for dish name.
         $Gname = trim($_POST['Gname'] ?? NULL);
-
-        if (empty($Gname)) { //Name besteht nur aus Leerzeichen nach Trim = empty
-            $fehler = "Name des Gerichts darf nicht nur aus Leerzeichen bestehen"; //Fehlermeldung
-            header("refresh:5; URL=wunschgericht.html");    //Neue Seite wird für 5 Sekunden angezeigt, wo die Fehlermeldung ausgegeben wird.
-            echo $fehler . "<br>";                                //Nach 5 Sekunden wird man wieder auf die Werbeseite weitergeleitet
-            echo "\n";
+        if (empty($Gname)) {
+            $fehler = "Dish name must not consist only of spaces";
+            header("refresh:5; URL=wunschgericht.html");
+            echo $fehler . "<br>";
             return view('empfehlung');
-
         }
 
+        // Check for dish description.
         $Gbeschreibung = trim($_POST['Gbeschreibung'] ?? NULL);
-
-        if (empty($Gbeschreibung)) { //Name besteht nur aus Leerzeichen nach Trim = empty
-            $fehler = "Beschreibung des Gerichts darf nicht nur aus Leerzeichen bestehen"; //Fehlermeldung
-            header("refresh:5; URL=wunschgericht.html");    //Neue Seite wird für 5 Sekunden angezeigt, wo die Fehlermeldung ausgegeben wird.
-            echo $fehler . "<br>";                                //Nach 5 Sekunden wird man wieder auf die Werbeseite weitergeleitet
-            echo "\n";
+        if (empty($Gbeschreibung)) {
+            $fehler = "Dish description must not consist only of spaces";
+            header("refresh:5; URL=wunschgericht.html");
+            echo $fehler . "<br>";
             return view('empfehlung');
-
         }
 
-        if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) { //Wenn Email im falschen Format -> Fehlermeldung
-            $fehler = "Email nicht im korrekten Format";
+        // Validate email format.
+        if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+            $fehler = "Email is not in the correct format";
             header("refresh:5; URL=werbeseite.php");
             echo $fehler . "\n";
             return view('empfehlung');
-
         }
 
-        $spammail = ['rcpt.at', 'damnthespam.at', 'wegwerfmail.de', 'trashmail']; //Wenn eine Spam-Mail aus dem Array erkannt wird -> Fehlermeldung
+        // Check for spam emails.
+        $spammail = ['rcpt.at', 'damnthespam.at', 'wegwerfmail.de', 'trashmail'];
         foreach ($spammail as $emails) {
-            if (str_contains($_POST ['email'], $emails)) {
-                $fehler = "Spam-Email erkannt";
+            if (str_contains($_POST['email'], $emails)) {
+                $fehler = "Spam email detected";
                 echo $fehler . "\n";
                 return view('empfehlung');
-
             }
-
         }
 
-        if (!$fehler) { //Wenn kein Fehler in der Eingabe
-            wunsch_gericht($name,$Gname,$Gbeschreibung);
-            echo "Vielen Dank für die Empfehlung"; //Rückmeldung an den User
+        // If there's no error in the input, record the dish recommendation.
+        if (!$fehler) {
+            wunsch_gericht($name, $Gname, $Gbeschreibung);
+            echo "Thank you for the recommendation";
             return view('emensa');
         }
     }
