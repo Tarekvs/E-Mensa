@@ -12,6 +12,8 @@ E-Mensa offers a wide range of features, including:
 
 - **Database Interaction**: The website is capable of creating a database connection, fetching data from the database, adding new records to the database, and deleting existing records.
 
+- **Database Security**:To protect against SQL injection attacks, user inputs are sanitized before they are used in SQL queries. This is achieved using the mysqli_real_escape_string() function, which escapes special characters in a string for use in an SQL statement.
+
 - **User Authentication**: Users can register and log in with a username, password, and email. The password is hashed before being saved in the Database. Furthermore admin privileges are available for users that register as admins.
 
 - **Meal Reviews**: Logged-in users can review meals and share their opinions. Admins can delete reviews.
@@ -34,7 +36,7 @@ To get started with E-Mensa, follow these steps:
 
 1. Clone this repository to your local machine:
    ```bash
-   git clone https://github.com/Tarekvs/E-Mensa.git
+   git clone https://github.com/Tarekvs/E-Mensa_PHP_SQL.git
 
 
 

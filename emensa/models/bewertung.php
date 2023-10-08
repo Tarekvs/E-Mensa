@@ -190,8 +190,21 @@ function isadmin($name)
 function markedratings()
 {
     $link = connectdb();
-    $link->set_charset("utf8");
 
-    $sql = "SELECT bewertungen.bewertungs_id, gericht.name, bewertungen.benutzer, bewertungen.datum, bewertungen.bemerkung, bewertungen.bewertung
+    $link ->set_charset("utf8");
+
+    $sql ="SELECT bewertungen.bewertungs_id, gericht.name, bewertungen.benutzer, bewertungen.datum, bewertungen.bemerkung, bewertungen.bewertung
             FROM bewertungen
             INNER JOIN gericht ON bewertungen.gericht_id = gericht.id
+            WHERE markiert = true
+            ORDER BY datum DESC";
+
+
+    $result = mysqli_query($link, $sql);
+
+    $data = mysqli_fetch_all($result, MYSQLI_BOTH);
+
+    mysqli_close($link);
+
+    return $data;
+}
