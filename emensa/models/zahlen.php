@@ -1,23 +1,31 @@
 <?php
 
-function besucherzahlen(){
+/**
+ * Fetches the current visitor count, increments it by one, and updates the database.
+ *
+ * @return int Returns the updated visitor count.
+ */
+function besucherzahlen() {
+    // Establish a connection to the database.
+    $link = connectdb();
+    $link->set_charset("utf8");
 
- $link = connectdb();
+    // Fetch the current visitor count from the database.
+    $sql = "select counter from zahlen"; 
+    $result = mysqli_query($link, $sql);
+    $counter = $result->fetch_assoc();
+    $zaehler = $counter['counter'];
 
-        $link ->set_charset("utf8");
+    // Increment the visitor count by one.
+    $inkr = $zaehler + 1;
 
-     $sql = "select counter from zahlen"; //Aktueller Stand abfragen
-            $result = mysqli_query($link, $sql);
-                            $counter = $result->fetch_assoc();
-                            $zaehler = $counter['counter'];
-                            $inkr = $zaehler + 1; //Zähler um eins erhöhen
+    // Update the new visitor count in the database.
+    $sql = "UPDATE zahlen SET counter=$inkr WHERE counter=$zaehler;";
+    mysqli_query($link, $sql);
 
-                            $sql = "UPDATE zahlen SET counter=$inkr WHERE counter=$zaehler;"; //Neuen Wert in Datenbank schreiben
+    // Close the database connection.
+    mysqli_close($link);
 
-                            mysqli_query($link, $sql);
-
-
-        mysqli_close($link);
-        return $inkr;
-
+    // Return the updated visitor count.
+    return $inkr;
 }
